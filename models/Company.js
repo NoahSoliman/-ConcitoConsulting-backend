@@ -2,41 +2,44 @@ const mongoose = require('mongoose');
 
 const companySchemma = new mongoose.Schema({
   _id: mongoose.Types.ObjectId,
-  OrganizationOrgnr: {
+  OrganizationOrgnr : {
+    type: String,
+  },
+  OrganizationName : {
+    type: String,
+  },
+  OrganizationStreetName : {
+    type: String,
+  },
+  OrganizationZIPCode : {
     type: Number,
   },
-  OrganizationName: {
+  OrganisationKommun : {
     type: String,
   },
-  OrganizationStreet: {
+  OrganizationCity : {
     type: String,
   },
-  OrganizationZIP: {
+  OrganizationRegion : {
+    type: String,
+  },
+  OrganizationTelefon : {
     type: Number,
   },
-  OrganizationCity: {
+  OrganizationWeb : {
     type: String,
   },
-  OrganizationTelefon: {
+  OrganizationMail : {
+    type: String,
+  },
+  OrganizationBransch : {
+    type: String,
+  },
+  OrganizationSNI1 : {
+    type: String,
+  },
+  SNI3Numbers : {
     type: Number,
-  },
-  OrganizationWeb: {
-    type: String,
-  },
-  OrganizationMail: {
-    type: String,
-  },
-  OrganizationBransch: {
-    type: String,
-  },
-  OrganizationSNI1: {
-    type: Number,
-  },
-  OrganizationTurnover: {
-    type: Number,
-  },
-  OrganizationKommun: {
-    type: String,
   },
 });
 
