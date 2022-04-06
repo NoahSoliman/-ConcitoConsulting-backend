@@ -8,6 +8,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //
 // app.options("*", cors({ origin: 'http://localhost:3001', optionsSuccessStatus: 200 }));
+const mongoose = require("mongoose");
+const Stream = require('stream').Stream
 
 app.use(
   cors({
@@ -18,12 +20,6 @@ app.use(
 );
 
 app.use(cookieParser());
-
-const mongoose = require("mongoose");
-
-const CompanyRouter = require("./router/company");
-const RegisterRouter = require("./router/register");
-const authRouter = require("./router/auth");
 
 mongoose.connect("mongodb://localhost:27017/database2", {
   useNewUrlParser: true,
@@ -38,6 +34,10 @@ db.on("error", (err) => {
 db.once("open", () => {
   console.log("connected to db");
 });
+
+const CompanyRouter = require("./router/company");
+const RegisterRouter = require("./router/register");
+const authRouter = require("./router/auth");
 
 app.get("/", (req, res) => {
   const cookies = req.cookies;

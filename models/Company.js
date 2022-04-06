@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const companySchemma = new mongoose.Schema({
   _id: mongoose.Types.ObjectId,
   OrganizationOrgnr : {
-    type: String,
+    type: Number,
   },
   OrganizationName : {
     type: String,
@@ -38,8 +38,58 @@ const companySchemma = new mongoose.Schema({
   OrganizationSNI1 : {
     type: String,
   },
-  SNI3Numbers : {
+  OrganizationEmployees : {
     type: Number,
+  },
+  OrganizationTurnover : {
+    type: Number,
+  },
+  RegNumberOfDigits : {
+    type: Number,
+  },
+  SNI2Numbers : {
+    type: String,
+  },
+  SNI3Numbers : {
+    type: String,
+  },
+  SNI4Numbers : {
+    type: String,
+  },
+  SNI5Numbers : {
+    type: String,
+  },
+  OrganizationV1W1 : {
+    type: Number,
+  },
+  Postadress : {
+    type: String,
+  },
+  Postnummer : {
+    type: Number,
+  },
+  Stad : {
+    type: String,
+  },
+  FinancialYear : {
+    type: Number,
+  },
+  Resultat : {
+    type: Number,
+  },
+  Moderbolag : {
+    type: String,
+  },
+  Etablerades : {
+    type: Number,
+  },
+  
+  EBITDA : {
+    type: Number,
+  
+  },
+  Soliditet : {
+    type: String,
   },
 });
 
