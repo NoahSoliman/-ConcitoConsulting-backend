@@ -7,13 +7,13 @@ const industrySchemma = new mongoose.Schema({
     type: String,
   },
   SNI2Digits : {
-    type: String,
+    type: Number,
   },
   branch : {
     type: String,
   },
   SNI3Digits : {
-    type: String,
+    type: Number,
   }
 });
 

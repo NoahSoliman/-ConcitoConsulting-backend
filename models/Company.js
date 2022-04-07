@@ -36,7 +36,7 @@ const companySchemma = new mongoose.Schema({
     type: String,
   },
   OrganizationSNI1 : {
-    type: String,
+    type: Number,
   },
   OrganizationEmployees : {
     type: Number,
@@ -48,16 +48,16 @@ const companySchemma = new mongoose.Schema({
     type: Number,
   },
   SNI2Numbers : {
-    type: String,
+    type: Number,
   },
   SNI3Numbers : {
-    type: String,
+    type: Number,
   },
   SNI4Numbers : {
-    type: String,
+    type: Number,
   },
   SNI5Numbers : {
-    type: String,
+    type: Number,
   },
   OrganizationV1W1 : {
     type: Number,

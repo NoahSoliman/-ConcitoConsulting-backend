@@ -15,8 +15,8 @@ Router.post("/company/:pageNo?/", authenticateToken, async (req, res) => {
   console.log(parseInt(req.params.pageNo));
   const PageNum = parseInt(req.params.pageNo);
   const PageSize = 50;
-  console.log(PageNum);
-  console.log(req.body.SNI3Numbers)
+  // console.log(PageNum);
+  // console.log(req.body.SNI3Numbers)
   if (req.body.SNI3Numbers) {
 
     let allData = req.body;
