@@ -11,60 +11,46 @@ Router.get("/company", authenticateToken, async (req, res) => {
   res.json(alldata);
 });
 
+Router.post("/company/result", authenticateToken, async (req, res) => {
+  console.log("test");
+  console.log(req.body);
+
+  res.end();
+});
+
 Router.post("/company/:pageNo?/", authenticateToken, async (req, res) => {
   console.log(parseInt(req.params.pageNo));
   const PageNum = parseInt(req.params.pageNo);
-  const PageSize = 50;
+  const PageSize = 25;
   // console.log(PageNum);
   // console.log(req.body.SNI3Numbers)
   if (req.body.SNI3Numbers) {
-
     let allData = req.body;
     // try {
-      const result = await companyModel
-        .find(allData)
-        .skip(PageNum > 0 ? PageSize * (PageNum - 1) : 0)
-        .limit(PageSize).exec((err,doc)=>{
-          if (err) { return res.json(err); }
-          // console.log(doc)
-          companyModel.countDocuments(allData).exec((count_err,count)=>{
-            if (count_err) { return res.json(count_err)}
-            // console.log(count)
-      
+    const result = await companyModel
+      .find(allData)
+      .skip(PageNum > 0 ? PageSize * (PageNum - 1) : 0)
+      .limit(PageSize)
+      .exec((err, doc) => {
+        if (err) {
+          return res.json(err);
+        }
+        // console.log(doc)
+        companyModel.countDocuments(allData).exec((count_err, count) => {
+          if (count_err) {
+            return res.json(count_err);
+          }
+          // console.log(count)
+
           return res.json({
             total: count,
             page: PageNum,
             pageSize: doc.length,
-            companies: doc
-          })
+            companies: doc,
           });
-
-        })
-    
-
-          // console.log(result);
-          // res.send(result);
-        
-
-    // } catch (err) {
-    //   console.log("error");
-    //   console.log(err);
-    // }
-
-    // let myreadStream = fs.createReadStream(JSON.stringify(docs));
-
-    // myreadStream.pipe(res);
-    // console.log(allaData);
-    // let chunk = [];
-    // let chunkSize = 10;
-
-    // for (let i = 0; i < docs.length; i += chunkSize) {
-
-    //   chunk.push(docs.slice(i, chunkSize + i));
-
-    // }
+        });
+      });
   }
-  
 });
 
 module.exports = Router;
